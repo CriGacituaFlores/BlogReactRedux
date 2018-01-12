@@ -1,12 +1,16 @@
 import { createStore, combineReducers } from 'redux';
 
-const allPosts = (state=[{id: 1, title: 'TItulo del post', body: 'cuerpo del post'}], action) => {
+const allPosts = (state=[], action) => {
     var nuevoEstado = Object.assign({}, state)
     switch(action.type) {
-			case 'DATA_LOADED':
-					return nuevoEstado;
-			default:
-					return state;
+        case 'DATA_LOADED':
+            nuevoEstado = state.concat(action.data)
+            return nuevoEstado;
+        case 'CLEAR_DATA':
+            nuevoEstado = [];
+            return nuevoEstado;
+        default:
+            return state;
     }
 }
 
