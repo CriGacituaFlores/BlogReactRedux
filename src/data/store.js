@@ -1,4 +1,5 @@
 import { createStore, combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form'
 
 const allPosts = (state=[], action) => {
     var nuevoEstado = Object.assign({}, state)
@@ -15,7 +16,8 @@ const allPosts = (state=[], action) => {
 }
 
 const reducer = combineReducers({
-    allPosts: allPosts
+    allPosts: allPosts,
+    form: formReducer
 });
 
 const store = createStore(reducer);
