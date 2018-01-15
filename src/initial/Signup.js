@@ -1,6 +1,7 @@
 import React from 'react'
 import ContactForm from './Form.js'
-import SignupFormV from './SignupFormV'
+//import SignupFormV from './SignupFormV'
+import SignupFormFinal from './SignupFormFinal'
 
 
 const Signup = () => {
@@ -10,7 +11,7 @@ const Signup = () => {
     return (
         <div>
           <h2>Dentro de Signup</h2>
-          <SignupFormV onSubmit={funcionForma} />
+          <SignupFormFinal onSubmit={funcionForma} />
         </div>
         
     )
