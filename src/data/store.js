@@ -43,11 +43,26 @@ const session = (state=null, action) => {
     }
 }
 
+const pagination = (state={total: 1,page: 1}, action) => {
+    var nuevoEstado = Object.assign({}, state)
+    switch(action.type) {
+        case 'SET_TOTAL':
+            nuevoEstado.total = action.total
+            return nuevoEstado
+        case 'SET_CURRENT':
+            nuevoEstado.page = action.page
+            return nuevoEstado
+        default:
+            return state
+    }
+}
+
 const reducer = combineReducers({
     allPosts: allPosts,
     form: formReducer,
     userStatus: userCreated,
-    session: session
+    session: session,
+    pagination: pagination
 });
 
 const store = createStore(reducer);

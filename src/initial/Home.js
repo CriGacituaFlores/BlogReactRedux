@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
+import Pagination from '../Pagination.js'
 
 class Home extends Component {
 
@@ -28,6 +29,7 @@ class Home extends Component {
     return(
         <div>
             <h2> hola nuevo componente</h2>
+            <Pagination />
             {this.allPosts()}
         </div>
     )
