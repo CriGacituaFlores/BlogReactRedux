@@ -25,6 +25,20 @@ const userCreated = (state={}, action) => {
             nuevoEstado = {mensaje: 'EL usuario no se creo'}
             return nuevoEstado
         default:
+            return {}
+    }
+}
+
+const session = (state=null, action) => {
+    var nuevoEstado = Object.assign({}, state)
+    switch(action.type) {
+        case 'LOGIN':
+            nuevoEstado = action.data
+            return nuevoEstado
+        case 'LOGOUT':
+            nuevoEstado = null
+            return nuevoEstado
+        default:
             return state
     }
 }
@@ -32,7 +46,8 @@ const userCreated = (state={}, action) => {
 const reducer = combineReducers({
     allPosts: allPosts,
     form: formReducer,
-    userStatus: userCreated
+    userStatus: userCreated,
+    session: session
 });
 
 const store = createStore(reducer);
