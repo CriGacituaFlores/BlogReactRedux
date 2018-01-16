@@ -13,6 +13,14 @@ const validate = values => {
 
   if (!values.password) {
     errors.password = 'Required'
+  } else if (values.password.length < 6){
+    errors.password = 'Password no puede menor a 6 caracteres'
+  }
+
+  if(!values.passwordConfirmation) {
+    errors.passwordConfirmation = 'Required'
+  } else if(!(values.password === values.passwordConfirmation)) {
+    errors.passwordConfirmation = 'Deben coincidar las claves'
   }
 
   if (!values.email) {
@@ -63,6 +71,12 @@ const SignupFormFinal = props => {
         type="password"
         component={renderField}
         label="Password"
+      />
+      <Field
+        name="passwordConfirmation"
+        type="password"
+        component={renderField}
+        label="Password Confirmation"
       />
       <Field name="email" type="email" component={renderField} label="Email" />
       <div>
