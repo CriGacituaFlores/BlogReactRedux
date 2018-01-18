@@ -61,7 +61,7 @@ const reducer = combineReducers({
     allPosts: allPosts,
     form: formReducer,
     userStatus: userCreated,
-    session: session,
+    login: session,
     pagination: pagination
 });
 

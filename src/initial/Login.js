@@ -5,6 +5,11 @@ import { connect } from 'react-redux'
 
 
 const Login = (props) => {
+
+  const funcProps = () => {
+    console.log(props.own)
+  }
+
   const funcionForma = (datos) => {
     console.log(datos)
     axios.post('https://blog-api-u.herokuapp.com/v1/login', {
@@ -16,6 +21,7 @@ const Login = (props) => {
     .then(function(response){
       console.log(response)
       props.login(response.data)
+      //props.history.push('/')
     })
     .catch(function(error){
       console.log(error)
@@ -24,16 +30,18 @@ const Login = (props) => {
   }
   return (
       <div>
-        <h2>Dentro de Login</h2>
+        {funcProps()}
+        <h2>Login</h2>
         {props.mensaje.mensaje}
         <LoginFormaFinal onSubmit={funcionForma}/>
       </div>
   )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    mensaje: state.userStatus
+    mensaje: state.userStatus,
+    //own: ownProps
   }
 }
 

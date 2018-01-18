@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import Home from './initial/Home.js'
 import Login from './initial/Login.js'
 import Signup from './initial/Signup.js'
+import Post from './initial/Post.js'
+import { connect } from 'react-redux' 
+import AHeader from './auth/AHeader.js'
 
 const Header = () => {
   return (
@@ -14,17 +17,43 @@ const Header = () => {
   )
 }
 
-const App = () => {
-  return (
-    <Router>
-      <div>
-        <Header/>
-        <Route exact path="/" component={Home}/>
-        <Route path="/login" component={Login}/>
-        <Route path="/signup" component={Signup}/>
-      </div>
-    </Router>
-  )
+const App = (props) => {
+  console.log(props.login)
+  if(props.login!=null){
+    return (
+      <Router>
+        <div>
+          <AHeader/>
+          <h2>Aut</h2>
+        </div>
+      </Router>
+    )
+  } else {
+    return (
+      <Router>
+        <div>
+          <Header/>
+          <Route exact path="/" component={Home}/>
+          <Route path="/login" component={Login}/>
+          <Route path="/signup" component={Signup}/>
+          <Route exact path="/post/:id" component={Post}/>
+          <h2>Dentro de App</h2>
+        </div>
+      </Router>
+    )
+  }
 }
 
-export default App
+const mapStateToProps = (state) => {
+  return {
+    login: state.login
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(App)
