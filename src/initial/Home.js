@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import Pagination from '../Pagination.js'
+import { Link } from 'react-router-dom'
 
 class Home extends Component {
 
@@ -18,7 +19,9 @@ class Home extends Component {
   allPosts = () => {
     const Posts = this.props.allPosts.map((post) => {
       return (
-          <h2 key={post.id}>{post.title}</h2>
+          <Link to={`/post/${post.id}`} key={post.id}>
+            <h4 key={post.id}>{post.title}</h4>
+          </Link>
       )
     })
 
