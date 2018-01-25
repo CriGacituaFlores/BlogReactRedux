@@ -6,7 +6,7 @@ const AHeader = (props) => {
     return (
         <div>
             <Link to="/">Home</Link>
-            <Link to="/">Mis posts</Link>
+            <Link to={`/${props.login.id}/posts`}>Mis posts</Link>
             <Link to="/" onClick={props.logout}>Logout</Link>
         </div>
     )
@@ -14,7 +14,7 @@ const AHeader = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        prop: state.prop
+        login: state.login
     }
 }
 

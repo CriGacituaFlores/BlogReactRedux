@@ -6,6 +6,8 @@ import Signup from './initial/Signup.js'
 import Post from './initial/Post.js'
 import { connect } from 'react-redux' 
 import AHeader from './auth/AHeader.js'
+import MyPosts from './auth/MyPosts.js'
+import ToCreate from './auth/ToCreate.js'
 
 const Header = () => {
   return (
@@ -25,6 +27,10 @@ const App = (props) => {
         <div>
           <AHeader/>
           <h2>Aut</h2>
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/post/:id" component={Post}/>
+          <Route path="/:user/posts" component={MyPosts}/>
+          <Route path="/:user/create" component={ToCreate}/>
         </div>
       </Router>
     )
