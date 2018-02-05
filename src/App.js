@@ -31,6 +31,7 @@ const App = (props) => {
           <Route exact path="/post/:id" component={Post}/>
           <Route path="/:user/posts" component={MyPosts}/>
           <Route path="/:user/create" component={ToCreate}/>
+          <Route path="/:user/post/:id" component={Post}/>
         </div>
       </Router>
     )

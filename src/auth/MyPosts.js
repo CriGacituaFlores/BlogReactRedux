@@ -18,10 +18,7 @@ class MyPosts extends Component {
         if(this.props.posts.length !== 0){
             misPosts = this.props.posts.map((p) => {
                 return (
-                    <div>
-                        <Link to="#" key={p.id}>{p.title}</Link>
-                        <br/>
-                    </div>
+                    <Link to={`/${p.user_id}/post/${p.id}`} key={p.id}><p>{p.title}</p></Link>
                 )
             })
         } else {

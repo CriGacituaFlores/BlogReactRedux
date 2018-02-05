@@ -5,7 +5,7 @@ const allPosts = (state=[], action) => {
     var nuevoEstado = Object.assign({}, state)
     switch(action.type) {
         case 'DATA_LOADED':
-            nuevoEstado = state.concat(action.data)
+            nuevoEstado = action.data
             return nuevoEstado;
         case 'CLEAR_DATA':
             nuevoEstado = [];
